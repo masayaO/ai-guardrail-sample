@@ -47,6 +47,38 @@ npm run build:tsc
 
 - `tsgo` 導線で問題が起きた場合は `build` から `build:tsc` へ切り替えて継続できます。
 
+## Lint（OXC）
+
+```bash
+npm run lint
+```
+
+- `oxlint` でチェックします（warning は失敗扱いにしません）。
+
+### Strict チェック
+
+```bash
+npm run lint:strict
+```
+
+- warning も含めて失敗扱いにします。
+
+## Format（OXC）
+
+```bash
+npm run format
+```
+
+- `oxfmt` で整形します。
+
+### 整形チェック
+
+```bash
+npm run format:check
+```
+
+- 整形差分がある場合に失敗します。
+
 ## ルーティング
 
 - `/` -> `/todos` へリダイレクト

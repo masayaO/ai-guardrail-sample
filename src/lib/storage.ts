@@ -1,43 +1,43 @@
-import type { Todo } from '@/types/todo'
+import type { Todo } from "@/types/todo";
 
-const TODO_STORAGE_KEY = 'todo-app-v1'
+const TODO_STORAGE_KEY = "todo-app-v1";
 
 function isTodo(value: unknown): value is Todo {
-  if (typeof value !== 'object' || value === null) {
-    return false
+  if (typeof value !== "object" || value === null) {
+    return false;
   }
 
-  const todo = value as Record<string, unknown>
+  const todo = value as Record<string, unknown>;
   return (
-    typeof todo.id === 'string' &&
-    typeof todo.title === 'string' &&
-    typeof todo.completed === 'boolean' &&
-    typeof todo.createdAt === 'string' &&
-    typeof todo.updatedAt === 'string'
-  )
+    typeof todo.id === "string" &&
+    typeof todo.title === "string" &&
+    typeof todo.completed === "boolean" &&
+    typeof todo.createdAt === "string" &&
+    typeof todo.updatedAt === "string"
+  );
 }
 
 export function loadTodos(): Todo[] {
   try {
-    const raw = localStorage.getItem(TODO_STORAGE_KEY)
+    const raw = localStorage.getItem(TODO_STORAGE_KEY);
     if (!raw) {
-      return []
+      return [];
     }
 
-    const parsed = JSON.parse(raw)
+    const parsed = JSON.parse(raw);
     if (!Array.isArray(parsed)) {
-      return []
+      return [];
     }
 
-    return parsed.filter(isTodo)
+    return parsed.filter(isTodo);
   } catch {
-    return []
+    return [];
   }
 }
 
 export function saveTodos(todos: Todo[]) {
   try {
-    localStorage.setItem(TODO_STORAGE_KEY, JSON.stringify(todos))
+    localStorage.setItem(TODO_STORAGE_KEY, JSON.stringify(todos));
   } catch {
     // Ignore storage write errors to keep app usable.
   }

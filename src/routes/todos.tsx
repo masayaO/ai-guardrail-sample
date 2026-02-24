@@ -1,7 +1,7 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
 
-import { TodosPage } from '@/features/todos/page'
+import { TodosPage } from "@/features/todos/page";
 
-export const Route = createFileRoute('/todos')({
+export const Route = createFileRoute("/todos")({
   component: TodosPage,
-})
+});

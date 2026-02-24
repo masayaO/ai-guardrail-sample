@@ -1,26 +1,26 @@
-import { useState } from 'react'
-import type { FormEvent } from 'react'
-import { Button } from '@/ui/button'
-import { Input } from '@/ui/input'
+import { useState } from "react";
+import type { FormEvent } from "react";
+import { Button } from "@/ui/button";
+import { Input } from "@/ui/input";
 
 type TodoInputProps = {
-  onAddTodo: (title: string) => void
-}
+  onAddTodo: (title: string) => void;
+};
 
-const MAX_TITLE_LENGTH = 100
+const MAX_TITLE_LENGTH = 100;
 
 export function TodoInput({ onAddTodo }: TodoInputProps) {
-  const [title, setTitle] = useState('')
+  const [title, setTitle] = useState("");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-    const normalizedTitle = title.trim()
+    event.preventDefault();
+    const normalizedTitle = title.trim();
     if (!normalizedTitle) {
-      return
+      return;
     }
 
-    onAddTodo(normalizedTitle)
-    setTitle('')
+    onAddTodo(normalizedTitle);
+    setTitle("");
   }
 
   return (
@@ -33,5 +33,5 @@ export function TodoInput({ onAddTodo }: TodoInputProps) {
       />
       <Button type="submit">追加</Button>
     </form>
-  )
+  );
 }

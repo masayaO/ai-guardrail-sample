@@ -79,6 +79,22 @@ npm run format:check
 
 - 整形差分がある場合に失敗します。
 
+## Unused code check (Knip)
+
+```bash
+npm run knip
+```
+
+- `knip` で未使用 dependency/export/file を検出します。
+
+### Strict チェック
+
+```bash
+npm run knip:strict
+```
+
+- 設定ヒントもエラー扱いで実行します。
+
 ## ルーティング
 
 - `/` -> `/todos` へリダイレクト

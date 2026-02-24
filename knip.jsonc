@@ -1,0 +1,7 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema-jsonc.json",
+  "project": ["src/**/*.{ts,tsx}", "*.config.{js,ts}"],
+  "ignoreIssues": {
+    "src/ui/**": ["exports"],
+  },
+}

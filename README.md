@@ -1,6 +1,7 @@
 # ai-guardrail-sample
 
-`React + TypeScript + Vite + TanStack Router + Tailwind + Zustand` で構築した ToDo サンプルアプリです。
+`React + TypeScript + Vite + TanStack Router + Tailwind + Zustand` で構築した ToDo サンプルアプリです。  
+型チェックは `tsgo`（`@typescript/native-preview`）を主系として利用し、`tsc` をフォールバックとして併存させています。
 
 ## セットアップ
 
@@ -19,6 +20,32 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## 型チェック
+
+```bash
+npm run typecheck
+```
+
+- `tsgo` を使った主系の型チェックです。
+- `@typescript/native-preview` は preview のため、段階移行で運用します。
+
+### フォールバック（tsc）
+
+```bash
+npm run typecheck:tsc
+```
+
+- 従来の `tsc -b` を使ったフォールバック用の型チェックです。
+- 1〜2スプリントは `tsgo` と併存し、安定性を確認します。
+
+## フォールバック付きビルド
+
+```bash
+npm run build:tsc
+```
+
+- `tsgo` 導線で問題が起きた場合は `build` から `build:tsc` へ切り替えて継続できます。
 
 ## ルーティング
 
